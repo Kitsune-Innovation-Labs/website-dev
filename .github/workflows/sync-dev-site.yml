@@ -89,3 +89,5 @@ jobs:
 
           git commit -m 'Sync website dev branch'
           git push origin main
+
+# Touching this workflow is also our immediate/manual sync trigger when needed.

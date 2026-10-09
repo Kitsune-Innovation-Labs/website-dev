@@ -91,4 +91,4 @@ jobs:
           git push origin main
 
 # Touching this workflow is also our immediate/manual sync trigger when needed.
-# Refresh 2026-10-09 expanded GameTable feature matrix.
+# Refresh 2026-10-09 GameTable screenshots pass.

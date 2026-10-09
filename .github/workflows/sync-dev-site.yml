@@ -91,4 +91,4 @@ jobs:
           git push origin main
 
 # Touching this workflow is also our immediate/manual sync trigger when needed.
-# Refresh 2026-10-10 beta screenshot note and homepage hero polish.
+# Refresh 2026-10-10 prominent GameTable beta screenshot notice.

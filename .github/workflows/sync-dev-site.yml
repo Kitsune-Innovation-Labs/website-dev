@@ -1,6 +1,10 @@
 name: Sync dev site
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-dev-site.yml'
   workflow_dispatch:
   schedule:
     - cron: '*/5 * * * *'

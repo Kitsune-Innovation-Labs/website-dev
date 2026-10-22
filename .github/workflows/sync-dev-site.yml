@@ -58,6 +58,9 @@ jobs:
           cp -a source/charter _site/
           cp -a source/design _site/
 
+          # Compile the Research Library from canonical kitsunebi Markdown.
+          node source/kitsunebi/tools/build-research.mjs _site/design/research
+
           if [ -d source/gametable ]; then
             cp -a source/gametable _site/
           fi

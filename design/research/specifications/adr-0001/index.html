@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-theme="day"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Architecture Decision Record 0001. Our first explicit architectural decision and the alternatives and costs behind it."><meta name="color-scheme" content="light dark">
+<title>Separate Semantic Grammar from Expressive Voice · Kitsunebi Research · Kitsune Innovation Labs</title>
+<link rel="stylesheet" href="/design/research/library.css">
+<meta name="citation_author" content="Kitsune Innovation Labs"><meta name="citation_title" content="Separate Semantic Grammar from Expressive Voice"><meta name="citation_date" content="2026/10/22">
+<script src="/design/research/library.mjs" type="module"></script>
+</head><body class="reader">
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="ambient one" aria-hidden="true"></div><div class="ambient two" aria-hidden="true"></div>
+<header class="site-header"><div class="site-header__inner">
+<a href="/design/" class="brand"><span class="brand-mark" aria-hidden="true">✦</span><span>Kitsunebi <small>狐火</small></span></a>
+<nav aria-label="Site navigation"><a href="/">Kitsune Labs</a><a href="/design/">Design Lab</a><a href="/design/voice-lab/">Voice Lab</a><a href="/design/research/" aria-current="false">Research</a></nav>
+<button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch between day and night themes" title="Toggle day/night">☾ <span>Theme</span></button>
+</div></header>
+<main id="main" class="container reader-main" data-reader><div class="article-layout">
+      <article class="article"><div class="article-hero"><div class="crumbs"><a href="/design/research/">Research Library</a><span aria-hidden="true">›</span><span>ADR 0001 · Proposed</span></div><div class="eyebrow">KITSUNEBI RESEARCH · DESIGN DECISIONS</div><h1>Separate Semantic Grammar from Expressive Voice</h1><p class="article-subtitle">Architecture Decision Record 0001</p>
+      <p class="byline">Kitsune Innovation Labs <span aria-hidden="true">·</span> 22 October 2026 <span aria-hidden="true">·</span> v0.1</p>
+      <div class="status-callout" role="note"><strong>Engineering proposal · Under review</strong><p>This page is generated from the versioned Markdown manuscript in GitHub. No peer review or participant findings are implied.</p></div>
+      <div class="article-actions"><button type="button" data-print>Print / Save as PDF <span aria-hidden="true">↗</span></button><button type="button" data-citation-copy>Copy citation</button><a href="https://github.com/Kitsune-Innovation-Labs/website/blob/dev/kitsunebi/adr/0001-one-language-many-voices.md" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a></div>
+      <details class="citation"><summary>Show suggested citation</summary><p data-citation-text>Kitsune Innovation Labs. (2026). Separate Semantic Grammar from Expressive Voice (ADR 0001 · Proposed, Version 0.1) [Working draft]. https://github.com/Kitsune-Innovation-Labs/website/blob/dev/kitsunebi/adr/0001-one-language-many-voices.md</p><p class="citation-notice">Citation describes a working draft. This manuscript has no DOI or peer-reviewed publication status.</p></details>
+      </div><div class="paper-body"><p><strong>Status:</strong> Proposed for review · 2026-10-22</p>
+<h2 id="context">Context <a class="anchor" href="#context" aria-label="Link to Context">#</a></h2>
+<p>The Kitsune Innovation Labs website already feels playful and professional. The current deployed Lab is more neutral and technical, and its editable application source is not present here. KitsuneOS needs a coherent interface across desktop, server-adjacent tooling, TV, touch and future devices. Simply skinning independently behaving widgets would repeat frustrations encountered while using a pieced-together Niri desktop.</p>
+<h2 id="decision">Decision <a class="anchor" href="#decision" aria-label="Link to Decision">#</a></h2>
+<p>Kitsunebi SHALL have a stable layer of semantic roles, state/interaction contracts and accessibility invariants. User-authored expression profiles change appearance, comfort and permitted presentation strategies without changing domain actions. The website&#39;s expressive visual language becomes the <strong>Reference Voice</strong>, not an enforced universal colourway. Profiles are data, interoperable and locally portable. Conflict precedence and fallbacks are explicit. Runtime adapters implement platform-appropriate behaviour.</p>
+<h2 id="alternatives-considered">Alternatives considered <a class="anchor" href="#alternatives-considered" aria-label="Link to Alternatives considered">#</a></h2>
+<ol><li><strong>A single fixed UI style</strong> — easier maintenance, defeats self-authorship.</li><li><strong>One unconstrained CSS/Qt theme per user</strong> — high freedom, poor portability and unsafe/misleading semantics.</li><li><strong>Different hand-curated design systems for each platform</strong> — local polish, drift and fragmented identity.</li><li><strong>A semantic grammar with expressive dialects (chosen)</strong> — added engineering and governance, better balance of agency/cohesion.</li></ol>
+<h2 id="consequences">Consequences <a class="anchor" href="#consequences" aria-label="Link to Consequences">#</a></h2>
+<p>Positive: supports user expression, accessibility policy and cross-platform contracts. Costs: resolver complexity, token governance, migration burden, and need for significant user research. A shared vocabulary does not prove a shared experience; empirical evaluation remains necessary.</p>
+<h2 id="non-goals">Non-goals <a class="anchor" href="#non-goals" aria-label="Link to Non-goals">#</a></h2>
+<p>Not a new rendering engine, automatic personality inference, neural adaptation, or guarantee of pixel parity. Nor does this ADR mean replacing the live site.</p>
+<h2 id="review-triggers">Review triggers <a class="anchor" href="#review-triggers" aria-label="Link to Review triggers">#</a></h2>
+<p>A role cannot map cleanly across platforms; accessibility override causes loss of agency; user tests reveal confusion; security/privacy problems emerge; implementation maintenance exceeds benefit. Revisit the decision with evidence rather than protecting its aesthetic appeal.</p></div>
+      <div class="article-bottom"><p><strong>Keep questioning.</strong> This work is open to criticism, revision, empirical evaluation and participation.</p><a href="/design/research/">← Back to the Research Library</a></div></article>
+      <aside class="toc" aria-label="On this page"><div class="toc-sticky"><div class="eyebrow">ON THIS PAGE</div><ol><li class=""><a href="#context">Context</a></li><li class=""><a href="#decision">Decision</a></li><li class=""><a href="#alternatives-considered">Alternatives considered</a></li><li class=""><a href="#consequences">Consequences</a></li><li class=""><a href="#non-goals">Non-goals</a></li><li class=""><a href="#review-triggers">Review triggers</a></li></ol>
+      <div class="toc-meta"><span>299 words</span><span>About 2 min read</span></div>
+      <div class="toc-cross"><a href="/design/voice-lab/">✦ Try the Voice Lab ↗</a><a href="/design/research/">← All research</a></div></div></aside></div></main>
+<footer class="site-footer"><div class="container"><p><strong>Kitsunebi 狐火</strong> · Research by <a href="/">Kitsune Innovation Labs</a></p><p>Open exploration, careful claims, and a little foxfire. <a href="https://github.com/Kitsune-Innovation-Labs/website/tree/dev/kitsunebi">Explore the source ↗</a></p></div></footer>
+</body></html>

@@ -38,6 +38,10 @@ jobs:
           cp source/design/voice-lab/index.html staging/design/voice-lab/index.html
           cp source/design/index.html staging/design/index.html
           cp source/design/kb-navigation.css source/design/kb-navigation.mjs staging/design/
+          mkdir -p staging/assets
+          cp source/assets/kil-site-header.css source/assets/kil-site-header.mjs staging/assets/
+          cp source/index.html staging/index.html
+          test -s staging/assets/kil-site-header.mjs
           test -s staging/design/kb-navigation.mjs
           test -s staging/design/research/index.html
           test -s staging/design/research/papers/semantic-invariance/index.html
@@ -50,13 +54,15 @@ jobs:
           cd staging
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add design/research design/voice-lab/index.html design/index.html design/kb-navigation.css design/kb-navigation.mjs
+          git add index.html assets/kil-site-header.css assets/kil-site-header.mjs design/research design/voice-lab/index.html design/index.html design/kb-navigation.css design/kb-navigation.mjs
           if git diff --cached --quiet; then
             echo 'Research Library already up to date.'
             exit 0
           fi
-          git commit -m 'Publish unified Kitsunebi navigation preview'
+          git commit -m 'Publish shared KIL site header and Kitsunebi navigation preview'
           git pull --rebase origin main
           git push origin main
 
 # Preview refresh: reading-first Research Library 3.0 — 2026-10-23.
+
+# Dev-only refresh 2026-10-23: single KIL primary header + correct research destination.

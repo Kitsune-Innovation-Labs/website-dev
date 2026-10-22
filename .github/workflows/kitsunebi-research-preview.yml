@@ -47,7 +47,6 @@ jobs:
           cd staging
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git pull --rebase origin main
           git add design/research design/voice-lab/index.html
           if git diff --cached --quiet; then
             echo 'Research Library already up to date.'

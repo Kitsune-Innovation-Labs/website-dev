@@ -1,0 +1,58 @@
+name: Publish Kitsunebi Research preview (lightweight)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/kitsunebi-research-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: kitsunebi-research-preview
+  cancel-in-progress: true
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out staging website
+        uses: actions/checkout@v4
+        with:
+          path: staging
+      - name: Check out source dev branch
+        uses: actions/checkout@v4
+        with:
+          repository: Kitsune-Innovation-Labs/website
+          ref: dev
+          path: source
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate and stage Research Library without a full KitsuneOS rebuild
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p staging/design/research
+          cp source/design/research/library.css source/design/research/library.mjs staging/design/research/
+          node source/kitsunebi/tools/build-research.mjs staging/design/research
+          cp source/design/voice-lab/index.html staging/design/voice-lab/index.html
+          test -s staging/design/research/index.html
+          test -s staging/design/research/papers/semantic-invariance/index.html
+          test -s staging/design/research/papers/sanctuary/index.html
+          test -s staging/design/research/papers/coherent-pluralism/index.html
+      - name: Commit preview safely
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd staging
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase origin main
+          git add design/research design/voice-lab/index.html
+          if git diff --cached --quiet; then
+            echo 'Research Library already up to date.'
+            exit 0
+          fi
+          git commit -m 'Publish Kitsunebi Research Library preview'
+          git pull --rebase origin main
+          git push origin main

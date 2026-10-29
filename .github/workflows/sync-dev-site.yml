@@ -102,5 +102,6 @@ jobs:
 
 # Touching this workflow is also our immediate/manual sync trigger when needed.
 # 2026-10-30 Kitsune Life & Companions concept route staging.
+# 2026-10-30 Consistent KIL ambient bubbles and shared navigation on dev.
 # Refresh 2026-10-10 prominent GameTable beta screenshot notice.
 # Refresh 2026-10-22 Kitsunebi Voice Lab staging preview (website dev PR #2).

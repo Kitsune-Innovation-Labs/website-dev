@@ -77,6 +77,9 @@ jobs:
 
           printf '%s\n' 'dev.kitsunelabs.nz' > _site/CNAME
 
+      - name: Verify global navigation routes
+        run: node source/tools/check-site-navigation.mjs _site
+
       - name: Publish assembled site to staging repository
         shell: bash
         run: |
@@ -105,3 +108,4 @@ jobs:
 # 2026-10-30 Consistent KIL ambient bubbles and shared navigation on dev.
 # Refresh 2026-10-10 prominent GameTable beta screenshot notice.
 # Refresh 2026-10-22 Kitsunebi Voice Lab staging preview (website dev PR #2).
+# 2026-10-30 Share canonical navigation with KitsuneOS; validate menu on all routes.

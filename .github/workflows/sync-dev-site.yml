@@ -65,6 +65,13 @@ jobs:
             cp -a source/gametable _site/
           fi
 
+          # New concept routes from the website's dev branch.
+          for section in life companions; do
+            if [ -d "source/$section" ]; then
+              cp -a "source/$section" _site/
+            fi
+          done
+
           mkdir -p _site/kitsuneos
           cp -a source/kitsuneos/dist/. _site/kitsuneos/
 
@@ -94,5 +101,6 @@ jobs:
           git push origin main
 
 # Touching this workflow is also our immediate/manual sync trigger when needed.
+# 2026-10-30 Kitsune Life & Companions concept route staging.
 # Refresh 2026-10-10 prominent GameTable beta screenshot notice.
 # Refresh 2026-10-22 Kitsunebi Voice Lab staging preview (website dev PR #2).
